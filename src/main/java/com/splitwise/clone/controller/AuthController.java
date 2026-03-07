@@ -41,6 +41,8 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@Valid @RequestBody UserLoginRequest userLoginRequest) {
+        log.info("Login request received for email: {}", userLoginRequest.getEmail());
+
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(userLoginRequest.getEmail(), userLoginRequest.getPassword()));
 
@@ -54,11 +56,14 @@ public class AuthController {
                 .message("Login successful")
                 .build();
 
+        log.info("Login successful for email: {}", userLoginRequest.getEmail());
         return ResponseEntity.ok(response);
     }
 
     @PostMapping("/refresh")
     public ResponseEntity<AuthResponse> refreshToken(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
+        log.info("Refresh token request received");
+
         String userEmail = refreshTokenService.validateRefreshToken(refreshTokenRequest.getRefreshToken());
 
         String newAccessToken = jwtUtil.generateToken(userEmail);
@@ -70,15 +75,16 @@ public class AuthController {
                 .message("Token refreshed successfully")
                 .build();
 
+        log.info("Token refreshed successfully for email: {}", userEmail);
         return ResponseEntity.ok(response);
     }
 
     @PostMapping("/logout")
     public ResponseEntity<AuthResponse> logout(@Valid @RequestBody LogoutRequest logoutRequest, HttpServletRequest request) {
-        // Invalidate the refresh token
+        log.info("Logout request received");
+
         refreshTokenService.deleteRefreshToken(logoutRequest.getRefreshToken());
 
-        // Blacklist the current access token if present
         String authHeader = request.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String accessToken = authHeader.substring(7);
@@ -89,13 +95,18 @@ public class AuthController {
                 .message("Logout successful")
                 .build();
 
+        log.info("Logout successful");
         return ResponseEntity.ok(response);
     }
 
     @PostMapping("/signup")
     public String signup(@Valid @RequestBody UserSignupRequest userSignupRequest) {
+        log.info("Signup request received for email: {}", userSignupRequest.getEmail());
+
         UserSignUpRequestVo userSignUpRequestVo = UserMapper.INSTANCE.toUserSignupRequestVo(userSignupRequest);
         authService.signUp(userSignUpRequestVo);
+
+        log.info("Signup successful for email: {}", userSignupRequest.getEmail());
         return "Signup successful";
     }
 }

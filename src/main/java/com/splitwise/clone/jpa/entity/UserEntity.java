@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Table(name = "user_login")
@@ -46,4 +47,7 @@ public class UserEntity {
 
     @Column(name = "last_login")
     private Instant lastLogin;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserRoleEntity> userRoles;
 }
