@@ -1,12 +1,12 @@
 package com.splitwise.clone.controller;
 
 import com.splitwise.clone.mapper.UserMapper;
-import com.splitwise.clone.model.request.LogoutRequest;
-import com.splitwise.clone.model.request.RefreshTokenRequest;
-import com.splitwise.clone.model.request.UserLoginRequest;
-import com.splitwise.clone.model.request.UserSignupRequest;
-import com.splitwise.clone.model.response.AuthResponse;
-import com.splitwise.clone.model.vo.UserSignUpRequestVo;
+import com.splitwise.clone.model.request.auth.LogoutRequest;
+import com.splitwise.clone.model.request.auth.RefreshTokenRequest;
+import com.splitwise.clone.model.request.auth.UserLoginRequest;
+import com.splitwise.clone.model.request.auth.UserSignupRequest;
+import com.splitwise.clone.model.response.auth.AuthResponse;
+import com.splitwise.clone.model.vo.auth.UserSignUpRequestVo;
 import com.splitwise.clone.service.auth.IAuthService;
 import com.splitwise.clone.service.auth.impl.RefreshTokenService;
 import com.splitwise.clone.service.auth.impl.TokenBlacklistService;

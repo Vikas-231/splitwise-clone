@@ -1,4 +1,4 @@
-package com.splitwise.clone.model.auth;
+package com.splitwise.clone.model.vo.auth;
 
 import lombok.Builder;
 import lombok.Getter;

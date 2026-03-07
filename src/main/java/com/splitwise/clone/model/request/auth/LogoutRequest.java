@@ -1,4 +1,4 @@
-package com.splitwise.clone.model.request;
+package com.splitwise.clone.model.request.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;

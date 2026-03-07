@@ -1,4 +1,4 @@
-package com.splitwise.clone.model.response;
+package com.splitwise.clone.model.response.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

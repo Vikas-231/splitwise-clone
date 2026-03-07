@@ -6,7 +6,7 @@ import com.splitwise.clone.jpa.entity.UserRoleEntity;
 import com.splitwise.clone.jpa.repository.RoleRepository;
 import com.splitwise.clone.jpa.repository.UserRepository;
 import com.splitwise.clone.mapper.UserMapper;
-import com.splitwise.clone.model.vo.UserSignUpRequestVo;
+import com.splitwise.clone.model.vo.auth.UserSignUpRequestVo;
 import com.splitwise.clone.service.auth.IAuthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

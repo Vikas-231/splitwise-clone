@@ -1,7 +1,7 @@
 package com.splitwise.clone.filter;
 
 import com.splitwise.clone.jpa.entity.UserEntity;
-import com.splitwise.clone.model.auth.UserContext;
+import com.splitwise.clone.model.vo.auth.UserContext;
 import com.splitwise.clone.service.auth.impl.AuthService;
 import com.splitwise.clone.service.auth.impl.TokenBlacklistService;
 import com.splitwise.clone.util.JwtUtil;

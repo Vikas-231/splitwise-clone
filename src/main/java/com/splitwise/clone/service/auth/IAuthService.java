@@ -1,7 +1,7 @@
 package com.splitwise.clone.service.auth;
 
 import com.splitwise.clone.jpa.entity.UserEntity;
-import com.splitwise.clone.model.vo.UserSignUpRequestVo;
+import com.splitwise.clone.model.vo.auth.UserSignUpRequestVo;
 
 public interface IAuthService {
 
