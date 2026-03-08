@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class FriendRequest {
+public class AddFriendRequest {
 
     @Email
     @NotBlank
